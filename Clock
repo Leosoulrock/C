@@ -1,0 +1,86 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<time.h>
+
+struct clock
+{
+	int horas;
+	int minutos;
+	int segundos;
+	int milesimos;
+};
+
+//prototipo das funcoes auxiliares
+void delay();
+void update(struct clock *t);
+void display(struct clock *t);
+
+//funcao principal
+int main(int argc,char *argv[])
+{
+	struct clock time;
+	
+	//inicializa os dados da estrutur
+	time.horas=0;
+	time.minutos=0;
+	time.minutos=0;
+	time.milesimos=0;
+	
+	//loop infinito
+	for(;;)
+	{
+		update(&time);
+		display(&time);
+	} //end for
+	
+	
+}//end main
+
+void delay()
+{
+ Sleep(1000);
+}
+
+void update(struct clock *t)
+{
+  
+  t->milesimos++;
+  if(t->milesimos ==20)
+  {
+  	
+  	t->milesimos = 0;
+  	t->segundos++;
+  }
+    
+	if (t->segundos == 60)
+	{
+		t->segundos=0;
+		t->minutos++;
+	}
+	if(t->minutos == 60)
+	{
+		t->minutos = 0;
+		t->horas++;
+	}
+	if(t->horas == 24)
+	{
+		t->horas = 0;
+	}
+	
+	void delay();
+	
+
+}
+
+void display(struct clock *t){
+    printf("===============\n");
+	printf("%d:",t->horas);
+	printf("%d:",t->minutos);
+	printf("%d:",t->segundos);
+	printf("%d",t->milesimos*50);
+	printf("\n===============\n");
+	void delay();
+	system("cls");
+
+	
+}
