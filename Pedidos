@@ -1,0 +1,83 @@
+
+#include<stdlib.h>
+#include<locale.h>
+#define ham 4.20
+#define chee 5.50
+#define bat 3.80
+#define mil 5.80
+
+float tot(float h,float c, float b, float m){
+float t;
+t=(h*ham)+(c*chee)+(b*bat)+(m*mil);
+return t;
+}
+int main(){
+
+	setlocale(LC_ALL,"Portuguese");
+	int a,op;
+	char nome[30];
+	float h=0,c=0,b=0,m=0;
+printf("===========================================================\n");
+printf("\n              PROGRAMA ORGANIZADOR DE PEDIDOS\n");
+printf("\n===========================================================\n");
+while (op!=7){
+fflush(stdin);
+printf("Digite o nome do cliente:\n");
+fgets(nome,30,stdin);
+fflush(stdin);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+while (op!=6) {
+switch(op){
+case 1:h=h+1;
+printf("\nPedido atual:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\n",h,c,b,m);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+break;
+case 2:c=c+1;
+printf("\nPedido atual:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\n",h,c,b,m);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+break;
+case 3:b=b+1;
+printf("\nPedido atual:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\n",h,c,b,m);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+break;
+case 4:m=m+1;
+printf("\nPedido atual:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\n",h,c,b,m);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+break;
+case 5:h=0;
+c=0;
+b=0;
+m=0;
+printf("\nPedido atual:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\n",h,c,b,m);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+break;
+case 7:printf("\nEncerrando operação!\n");
+return 0;
+break;
+printf("\nPedido atual:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\n",h,c,b,m);
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+break;
+default:printf("Digite novamente\n");
+printf("\nSelecione o item desejado: [1]Hamburguer [2]Cheeseburguer [3]Batata Frita [4]Milkshake [5]Reiniciar pedido [6]Finalizar Pedido [7]Encerrar programa\n");
+scanf("%d",&op);
+}
+}
+printf("O pedido do cliente %s é:\n %.0f Hamburguer\n %.0f Cheeseburger\n %.0f Batata frita\n %.0f Milkshake\nTotal:R$ %.2f\n",nome,h,c,b,m,tot(h,c,b,m));
+printf("\nNovo pedido:\n");
+h=0;
+c=0;
+b=0;
+m=0;
+
+}
+getchar();
+return 0;
+}
+	
