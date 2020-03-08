@@ -1,0 +1,91 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<locale.h>
+
+
+struct todos_dados
+    {
+        float salario[999999];
+        char nome[999999][128];//Array de string com 99999 palavras de ate 128 caracteres
+    };
+struct todos_dados funcionario;//Uma estrutura ja e suficiente
+
+int main(){
+	int i=0,count=0,count2=0,op=2,vetor=0;
+	float maior=funcionario.salario[0],t,m;//delcaracao de variavel para receber valor do maior salario
+	
+	setlocale(LC_ALL, "portuguese");
+    //entrada
+    do{
+	printf("============================================================\n");
+	printf("Deseja adicionar um funcionário?>>>1--SIM, 0--Não<<<\n");
+	printf("============================================================\n");
+    scanf("%d",&op);
+    switch(op){
+	case 1:++vetor;
+	
+    for(i; i<vetor;i++){
+	printf("Digite nome do funcionário %d\n",(i+1));
+	scanf("%s",funcionario.nome[i]);
+    printf("\nDigite o salário do funcionário %d\n",(i+1));
+	scanf("%f",&funcionario.salario[i]);
+	if(funcionario.salario[i]<=0){
+	printf("ERRO, salário menor ou igual a zero");
+	--vetor;
+	--i;
+    }
+	printf("\n");
+	} 
+
+    //leitura
+	for(i; i<vetor;i++){
+	printf("O funcionário %d %s salário R$ %.2f\n",(i+1),funcionario.nome[i],funcionario.salario[i]);
+    printf("\n");
+	}
+	break;
+	
+//Seleção funcionário com maior salário e menor
+    case 0:
+//delcaracao de variavel para receber valor do maior salario
+	for(i=0;i<vetor;i++){
+	if(funcionario.salario[i]>maior){
+		maior=funcionario.salario[i];
+	count=i;
+	}
+}
+    float menor=funcionario.salario[0];//delcaracao de variavel para receber valor do menor salario
+	for(i=0;i<vetor;i++){
+	if(funcionario.salario[i]<menor){
+		menor=funcionario.salario[i];
+	count2=i;
+	}
+}
+	printf("==================LISTA DE FUNCIONÁRIOS====================\n");//Lista todos os fUNCIONÁRIOS varrendo o vetor.
+	for(i=0; i<vetor;i++){
+	printf("O funcionário %d %s salário R$ %.2f\n",(i+1),funcionario.nome[i],funcionario.salario[i]);
+    printf("\n");
+	}
+	
+	printf("==================MAIOR E MENOR SALÁRIO====================\n");
+	printf("O Funcionário com maior salário é %d %s salário R$ %.2f\n\n",(count+1),funcionario.nome[count],maior);
+	printf("O Funcionário com menor salário é %d %s salário R$ %.2f\n\n",(count2+1),funcionario.nome[count2],menor);
+	printf("\n");
+	
+	for(i=0;i<vetor;i++){
+		t= t+funcionario.salario[i];
+	}
+	m=(t/vetor);
+		printf("==================MÉDIA DOS SALÁRIOS====================\n");
+		printf("A média dos salários do total de %d funcionários R$ %.2f\n\n",vetor,m);
+	
+    break;
+    default:printf("Valor inválido!\n\a");
+  getchar();
+}
+
+}while(op!=0);
+
+   getchar();
+  
+	return 0;
+}
